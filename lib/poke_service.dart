@@ -23,7 +23,7 @@ class PokeService {
       final height = data['height'];
       final weight = data['weight'];
 
-      print('\n¡Pokémon encontrado!:');
+      print('\nPokémon encontrado:');
       print('Nombre: $name');
       print('Tipo: $type');
       print('Altura: $height');
@@ -34,8 +34,18 @@ class PokeService {
         [userId, name, type, height, weight],
       );
 
+      stdout.write('\n¿Deseas ver sus habilidades? (s/n): ');
+      final verHabilidades = stdin.readLineSync()!.toLowerCase();
+
+      if (verHabilidades == 's') {
+        final abilities = data['abilities']
+            .map<String>((a) => a['ability']['name'] as String)
+            .join(', ');
+        print('Habilidades: $abilities');
+      }
+
     } else {
-      print('¡Vaya! Parece que no he podido encontrar ese Pokemon...');
+      print('Pokémon no encontrado.');
     }
   }
 }
