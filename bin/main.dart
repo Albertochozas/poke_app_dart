@@ -28,8 +28,9 @@ void main() async {
     var continuar = true;
     while (continuar) {
       print('\n--- Menú ---');
-      print('1. Buscar Pokémon');
-      print('2. Salir');
+    print('1. Buscar Pokémon');
+    print('2. Ver favoritos');
+    print('3. Salir');
       stdout.write('Elige una opción: ');
       final seleccion = stdin.readLineSync();
 
@@ -38,6 +39,9 @@ void main() async {
           await pokeService.buscarPokemon();
           break;
         case '2':
+          await pokeService.verFavoritos();
+          break;
+        case '3':
           continuar = false;
           break;
         default:
