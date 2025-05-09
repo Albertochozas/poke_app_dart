@@ -20,7 +20,7 @@ class Usuario {
       );
       print('¡Usuario registrado con éxito!');
     } catch (e) {
-      print('Error: usuario ya existe o problema al registrar.');
+      print('¡Error: El usuario ya existe!');
     }
   }
 
